@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+
+<head>
+    <title>Edit Employee</title>
+</head>
+<body>
+    <h1>Edit Employee</h1>
+    <form th:action="@{/employees/edit/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+        <input type="hidden" th:field="*{id}">  <!-- Hidden input for ID -->
+        
+        <div class="mb-3">
+            <label>First Name:</label>
+            <input type="text" class="form-control" th:field="*{firstName}" required>
+        </div>
+        <div class="mb-3">
+            <label>Last Name:</label>
+            <input type="text" class="form-control" th:field="*{lastName}" required>
+        </div>
+        <div class="mb-3">
+            <label>Email:</label>
+            <input type="email" class="form-control" th:field="*{email}" required>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+    
+</body>
+</html>
